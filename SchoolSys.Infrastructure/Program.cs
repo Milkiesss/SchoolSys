@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging.Abstractions;
+using SchoolSys.Infrastructure.Dal.EntityFramework;
+
 namespace SchoolSys.Infrastructure;
 
 public class Program
@@ -12,6 +16,9 @@ public class Program
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();
 
+        builder.Services.AddDbContext<DataContext>(options => 
+            options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.

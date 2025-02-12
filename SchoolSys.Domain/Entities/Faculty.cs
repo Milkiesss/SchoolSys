@@ -3,5 +3,5 @@
 public class Faculty : BaseEntity
 {
     public string Name { get; set; }
-    public virtual ICollection<Group> Groups { get; set; }
+    public ICollection<Group> Groups { get; set; }
 }

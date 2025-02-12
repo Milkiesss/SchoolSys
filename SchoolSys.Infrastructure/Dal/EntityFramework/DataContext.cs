@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SchoolSys.Domain.Entities;
 
-namespace SchoolSys.Infrastructure.Controllers.EntityFramework.Configuration;
+namespace SchoolSys.Infrastructure.Dal.EntityFramework;
 
 public class DataContext : DbContext
 {
@@ -15,4 +15,9 @@ public class DataContext : DbContext
     public DbSet<Subject> Subjects { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<TeacherSubject> TeacherSubjectsvies { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(DataContext).Assembly);
+        base.OnModelCreating(modelBuilder);
+    }
 }
