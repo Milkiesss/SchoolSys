@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSys.Domain", "SchoolSys.Domain\SchoolSys.Domain.csproj", "{9ACCE3D4-587F-463D-A6C3-460142B63559}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5D1A82FB-AAB7-4B4D-AB19-481138C92BEB}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolSys.Infrastructure", "SchoolSys.Infrastructure\SchoolSys.Infrastructure.csproj", "{721B038D-52FD-4629-B865-61DEC127B4A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ACCE3D4-587F-463D-A6C3-460142B63559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ACCE3D4-587F-463D-A6C3-460142B63559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ACCE3D4-587F-463D-A6C3-460142B63559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ACCE3D4-587F-463D-A6C3-460142B63559}.Release|Any CPU.Build.0 = Release|Any CPU
+		{721B038D-52FD-4629-B865-61DEC127B4A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721B038D-52FD-4629-B865-61DEC127B4A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721B038D-52FD-4629-B865-61DEC127B4A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721B038D-52FD-4629-B865-61DEC127B4A1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

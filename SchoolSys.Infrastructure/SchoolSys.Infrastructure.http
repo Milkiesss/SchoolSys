@@ -1,0 +1,6 @@
+@SchoolSys.Infrastructure_HostAddress = http://localhost:5030
+
+GET {{SchoolSys.Infrastructure_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
