@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "VWOFFeFt2f4=",
+  "dgSpecHash": "eyK2rKxHQCk=",
   "success": true,
   "projectFilePath": "C:\\Users\\annap\\RiderProjects\\SchoolSys\\SchoolSys.Application\\SchoolSys.Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\annap\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.2\\microsoft.aspnetcore.authentication.jwtbearer.9.0.2.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.2\\microsoft.entityframeworkcore.9.0.2.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.2\\microsoft.entityframeworkcore.abstractions.9.0.2.nupkg.sha512",

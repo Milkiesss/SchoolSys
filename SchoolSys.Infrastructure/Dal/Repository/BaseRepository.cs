@@ -25,19 +25,29 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
         return await _dbSet.ToListAsync();
     }
 
-    public async Task AddAsync(T entity)
+    public async Task<Guid> AddAsync(T entity)
     {
         await _dbSet.AddAsync(entity);
+        await SaveChangesAsync();
+        return entity.Id;
     }
 
-    public bool Update(T entity)
+    public async Task<bool> UpdateAsync(T entity)
     {
+        if (!_dbSet.Any(e => e.Equals(entity)))
+            throw new KeyNotFoundException("not found");
         _dbSet.Update(entity);
+        await SaveChangesAsync();
+        return true;
     }
 
-    public bool Delete(T entity)
+    public async Task<bool> DeleteAsync(T entity)
     {
+        if (!_dbSet.Any(e => e.Equals(entity)))
+            throw new KeyNotFoundException("not found");
         _dbSet.Remove(entity);
+        await SaveChangesAsync();
+        return true;
     }
 
     public async Task SaveChangesAsync()

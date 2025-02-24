@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "FkT0bw/X+m8=",
+  "dgSpecHash": "yFRDEOi0jb0=",
   "success": true,
   "projectFilePath": "C:\\Users\\annap\\RiderProjects\\SchoolSys\\SchoolSys.Infrastructure\\SchoolSys.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\annap\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.2\\microsoft.aspnetcore.authentication.jwtbearer.9.0.2.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.2\\microsoft.aspnetcore.openapi.9.0.2.nupkg.sha512",

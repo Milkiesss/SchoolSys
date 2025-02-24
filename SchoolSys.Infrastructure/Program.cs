@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Logging.Abstractions;
+using SchoolSys.Application.interfaces.Repositories;
 using SchoolSys.Infrastructure.Dal.EntityFramework;
+using SchoolSys.Infrastructure.Dal.Repository;
 
 namespace SchoolSys.Infrastructure;
 
@@ -12,6 +13,16 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddAuthorization();
+        builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
+        builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+        builder.Services.AddScoped<IStudentHistoryRepository , StudentHistoryRepository >();
+        builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
+        builder.Services.AddScoped<IGroupRepository, GroupRepository>();
+        builder.Services.AddScoped<IFacultyRepository, FacultyRepository>();
+        builder.Services.AddScoped<ISubjectRepository, SubjectRepository>();
+        builder.Services.AddScoped<ILessonRepository, LessonRepository>();
+
+
 
         // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
         builder.Services.AddOpenApi();

@@ -2,8 +2,8 @@
 
 public class Subject : BaseEntity
 {
-    public string Name { get; set; } // Название предмета (например, "Математика")
+    public string Name { get; set; } 
     public Guid FacultyId { get; set; }
-    public  Faculty Faculty { get; set; } // Факультет, к которому относится предмет
+    public  Faculty Faculty { get; set; } 
     public  ICollection<TeacherSubject> TeacherSubjects { get; set; }
 }

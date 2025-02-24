@@ -11,5 +11,5 @@ public class Student : BaseEntity
     public Guid GroupId { get; set; }
     public StudentStatus Status { get; set; } // Поступил, Переведен, В академ. отпуске, Отчислен
     public  Group Group { get; set; }
-    public  ICollection<StudentHistory> History { get; set; }
+    public  ICollection<StudentHistory>? History { get; set; }
 }

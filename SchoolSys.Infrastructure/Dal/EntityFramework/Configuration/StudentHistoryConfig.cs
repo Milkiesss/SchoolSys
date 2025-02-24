@@ -15,10 +15,11 @@ public class StudentHistoryConfig : IEntityTypeConfiguration<StudentHistory>
 
         builder.Property(sh => sh.Comment)
             .HasMaxLength(500);
-
+        
         builder.HasOne(sh => sh.Student)
             .WithMany(s => s.History)
             .HasForeignKey(sh => sh.StudentId)
             .OnDelete(DeleteBehavior.Cascade);
+
     }
 }
