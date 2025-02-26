@@ -12,11 +12,7 @@ public class TeacherRepository : BaseRepository<Teacher>, ITeacherRepository
     {
         _context = context;
     }
-
-    public Task<ICollection<Teacher>> GetTeachersByFacultyIdAsync(Guid facultyId)
-    {
-        throw new NotImplementedException();
-    }
+    
 
     public async Task<bool> AddTeacherSubjectAsync(Guid teacherId, Guid subjectId)
     {

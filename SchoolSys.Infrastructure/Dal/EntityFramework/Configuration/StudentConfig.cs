@@ -10,11 +10,7 @@ public class StudentConfig : IEntityTypeConfiguration<Student>
     {
         builder.HasKey(s => s.Id);
 
-        builder.Property(s => s.FirstName)
-            .IsRequired()
-            .HasMaxLength(100);
-
-        builder.Property(s => s.LastName)
+        builder.Property(s => s.FullName)
             .IsRequired()
             .HasMaxLength(100);
 

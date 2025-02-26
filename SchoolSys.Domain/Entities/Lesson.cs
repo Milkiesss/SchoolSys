@@ -2,6 +2,16 @@
 
 public class Lesson : BaseEntity
 {
+    public Lesson(Guid Id, Guid dtoSubjectId, Guid dtoGroupId, DateTime dtoLessonDate, Guid dtoTeacherId, string dtoRoom)
+    {
+        SetId(Id);
+        SubjectId = dtoSubjectId;
+        GroupId = dtoGroupId;
+        LessonDate = dtoLessonDate;
+        TeacherId = dtoTeacherId;
+        Room = dtoRoom;
+    }
+
     public Guid GroupId { get; set; }
     public Guid SubjectId { get; set; }
     public Guid TeacherId { get; set; }

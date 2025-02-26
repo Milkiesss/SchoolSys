@@ -4,8 +4,17 @@ namespace SchoolSys.Domain.Entities;
 
 public class Student : BaseEntity
 {
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
+    public Student(Guid Id, string dtoFullName, string dtoGender, DateTime dtoDateOfBirth, StudentStatus dtoStatus, Guid dtoGroupId)
+    {
+        SetId(Id);
+        FullName = dtoFullName;
+        Gender = dtoGender;
+        DateOfBirth = dtoDateOfBirth;
+        Status = dtoStatus;
+        GroupId = dtoGroupId;
+    }
+    
+    public string FullName { get; set; }
     public DateTime DateOfBirth { get; set; }
     public string Gender { get; set; }
     public Guid GroupId { get; set; }

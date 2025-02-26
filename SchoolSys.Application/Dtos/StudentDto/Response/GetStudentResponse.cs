@@ -1,6 +1,6 @@
 namespace SchoolSys.Application.Dtos.StudentDto.Responce;
 
-public class GetStudentResponce : BaseStudentDto
+public class GetStudentResponse : BaseStudentDto
 {
     public Guid Id { get; set; }
 }

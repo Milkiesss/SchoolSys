@@ -21,22 +21,22 @@ public class StudentService : IStudentService
         _studentHistoryService = studentHistoryService;
     }
 
-    public async Task<GetStudentResponce> GetByIdAsync(Guid id)
+    public async Task<GetStudentResponse> GetByIdAsync(Guid id)
     {
         var student = await _studentRepository.GetByIdAsync(id);
-        return _mapper.Map<GetStudentResponce>(student);
+        return _mapper.Map<GetStudentResponse>(student);
     }
 
-    public  async Task<GetStudentWithHistoryResponce> GetByIdWithHistoryAsync(Guid id)
+    public  async Task<GetStudentWithHistoryResponse> GetByIdWithHistoryAsync(Guid id)
     {
         var student = await _studentRepository.GetStudentHistoryByIdAsync(id);
-        return _mapper.Map<GetStudentWithHistoryResponce>(student);
+        return _mapper.Map<GetStudentWithHistoryResponse>(student);
     }
 
-    public async  Task<IEnumerable<GetStudentResponce>> GetAllAsync()
+    public async  Task<IEnumerable<GetStudentResponse>> GetAllAsync()
     {
         var students = await _studentRepository.GetAllAsync();
-        return _mapper.Map<IEnumerable<GetStudentResponce>>(students);
+        return _mapper.Map<IEnumerable<GetStudentResponse>>(students);
     }
 
     public async Task<Guid> AddAsync(CreateStudentRequest createStudentRequest)
@@ -52,7 +52,7 @@ public class StudentService : IStudentService
         var student = await _studentRepository.GetByIdAsync(updateStudentRequest.Id);
         
         var OldStatus = student.Status;
-        student = _mapper.Map<Student>(updateStudentRequest);
+        student = _mapper.Map(updateStudentRequest, student);
         
         var result= await _studentRepository.UpdateAsync(student);
         
@@ -66,6 +66,8 @@ public class StudentService : IStudentService
     public async Task<bool> DeleteAsync(Guid id)
     {
         var student = await _studentRepository.GetByIdAsync(id);
+        if (student == null)
+            return false;
         return await _studentRepository.DeleteAsync(student);
     }
 }

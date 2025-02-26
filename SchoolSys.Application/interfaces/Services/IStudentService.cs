@@ -5,10 +5,10 @@ namespace SchoolSys.Application.interfaces.Services;
 
 public interface IStudentService
 {
-    public Task<GetStudentResponce> GetByIdAsync(Guid id);
-    public Task<GetStudentWithHistoryResponce> GetByIdWithHistoryAsync(Guid id);
-    public Task<IEnumerable<GetStudentResponce>> GetAllAsync();
-    public Task<Guid> AddAsync(CreateStudentRequest createStudentRequest);
-    public Task<bool> UpdateAsync(UpdateStudentRequest updateStudentRequest);
-    public Task<bool> DeleteAsync(Guid id);
+    Task<GetStudentResponse> GetByIdAsync(Guid id);
+    Task<GetStudentWithHistoryResponse> GetByIdWithHistoryAsync(Guid id);
+    Task<IEnumerable<GetStudentResponse>> GetAllAsync();
+    Task<Guid> AddAsync(CreateStudentRequest createStudentRequest);
+    Task<bool> UpdateAsync(UpdateStudentRequest updateStudentRequest);
+    Task<bool> DeleteAsync(Guid id);
 }

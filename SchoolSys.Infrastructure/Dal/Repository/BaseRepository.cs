@@ -34,8 +34,6 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 
     public async Task<bool> UpdateAsync(T entity)
     {
-        if (!_dbSet.Any(e => e.Equals(entity)))
-            throw new KeyNotFoundException("not found");
         _dbSet.Update(entity);
         await SaveChangesAsync();
         return true;
@@ -43,8 +41,6 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
 
     public async Task<bool> DeleteAsync(T entity)
     {
-        if (!_dbSet.Any(e => e.Equals(entity)))
-            throw new KeyNotFoundException("not found");
         _dbSet.Remove(entity);
         await SaveChangesAsync();
         return true;
