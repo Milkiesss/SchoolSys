@@ -63,7 +63,7 @@ public class StudentService : IStudentService
         return result;
     }
 
-    public Task<ICollection<GetStudentResponse>> GetStudentsByYearAsync(int year)
+    public Task<ICollection<GetStudentResponse>> GetStudentsByYearAndFacultyAsync(int year, Guid facultyId)
     {
         throw new NotImplementedException();
     }

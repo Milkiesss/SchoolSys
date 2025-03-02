@@ -10,7 +10,7 @@ public interface IStudentService
     Task<IEnumerable<GetStudentResponse>> GetAllAsync();
     Task<Guid> AddAsync(CreateStudentRequest createStudentRequest);
     Task<bool> UpdateAsync(UpdateStudentRequest updateStudentRequest);
-    Task<ICollection<GetStudentResponse>> GetStudentsByYearAsync(int year);
+    Task<ICollection<GetStudentResponse>> GetStudentsByYearAndFacultyAsync(int year, Guid facultyId);
     Task<ICollection<GetStudentResponse>> GetStudentByIdAsync(Guid studentId);
     Task<ICollection<GetStudentResponse>> GetStudentsByGroupIdAsync(Guid groupId);
     Task<bool> DeleteAsync(Guid id);
