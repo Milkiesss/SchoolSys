@@ -12,8 +12,7 @@ public class TeacherMapProfile : Profile
         CreateMap<CreateTeacherRequest,Teacher>()
             .ConstructUsing(dto => new Teacher(
                 Guid.NewGuid(),
-                dto.FirstName,
-                dto.LastName,
+                dto.FullName,
                 dto.Email,
                 dto.PhoneNumber
 
@@ -22,8 +21,7 @@ public class TeacherMapProfile : Profile
         CreateMap<UpdateTeacherRequest,Teacher>()
             .ConstructUsing(dto => new Teacher(
                 dto.Id,
-                dto.FirstName,
-                dto.LastName,
+                dto.FullName,
                 dto.Email,
                 dto.PhoneNumber
             ));

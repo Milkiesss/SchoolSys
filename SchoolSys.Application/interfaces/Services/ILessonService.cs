@@ -8,6 +8,8 @@ public interface ILessonService
     Task<Guid> AddAsync(CreateLessonRequest createLessonRequest);
     Task<bool> UpdateAsync(UpdateLessonRequest updateLessonRequest);
     Task<bool> DeleteAsync(Guid id);
-    Task<ICollection<GetLessonResponse>> GetLessonsByGroupIdAsync(Guid groupId);
-    Task<ICollection<GetLessonResponse>> GetLessonsByTeacherIdAsync(Guid teacherId);
+    Task<ICollection<GetLessonResponse>> GetLessonsForGroupInWeekAsync(Guid groupId, DateTime startOfWeek);
+    Task<ICollection<GetLessonResponse>> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days);
+
+
 }

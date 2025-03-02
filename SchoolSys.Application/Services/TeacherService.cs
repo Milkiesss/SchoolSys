@@ -55,6 +55,12 @@ public class TeacherService : ITeacherService
         return _mapper.Map<IEnumerable<GetTeacherResponse>>(teachers);
     }
 
+    public Task<GetTeacherResponse> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days)
+    {
+        throw new NotImplementedException();
+    }
+    
+
     public async Task<bool> AddTeacherSubjectAsync(Guid teacherId, Guid subjectId)
     {
         return await _teacherRepository.AddTeacherSubjectAsync(teacherId, subjectId);

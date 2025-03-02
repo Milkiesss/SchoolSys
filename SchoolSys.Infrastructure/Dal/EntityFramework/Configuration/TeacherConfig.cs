@@ -10,11 +10,7 @@ public class TeacherConfig: IEntityTypeConfiguration<Teacher>
     {
         builder.HasKey(t => t.Id);
 
-        builder.Property(t => t.FirstName)
-            .IsRequired()
-            .HasMaxLength(100);
-
-        builder.Property(t => t.LastName)
+        builder.Property(t => t.FullName)
             .IsRequired()
             .HasMaxLength(100);
 

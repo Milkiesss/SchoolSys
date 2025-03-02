@@ -43,7 +43,17 @@ public class LessonService : ILessonService
 
         return await _lessonRepository.DeleteAsync(lesson);
     }
-    
+
+    public Task<ICollection<GetLessonResponse>> GetLessonsForGroupInWeekAsync(Guid groupId, DateTime startOfWeek)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICollection<GetLessonResponse>> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days)
+    {
+        throw new NotImplementedException();
+    }
+
 
     public async Task<ICollection<GetLessonResponse>> GetLessonsByGroupIdAsync(Guid groupId)
     {

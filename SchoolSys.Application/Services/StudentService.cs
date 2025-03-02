@@ -63,6 +63,21 @@ public class StudentService : IStudentService
         return result;
     }
 
+    public Task<ICollection<GetStudentResponse>> GetStudentsByYearAsync(int year)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICollection<GetStudentResponse>> GetStudentByIdAsync(Guid studentId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<ICollection<GetStudentResponse>> GetStudentsByGroupIdAsync(Guid groupId)
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> DeleteAsync(Guid id)
     {
         var student = await _studentRepository.GetByIdAsync(id);

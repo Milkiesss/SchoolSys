@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "eyK2rKxHQCk=",
+  "dgSpecHash": "nEQDwBXA2/A=",
   "success": true,
   "projectFilePath": "C:\\Users\\annap\\RiderProjects\\SchoolSys\\SchoolSys.Application\\SchoolSys.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\annap\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\annap\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\annap\\.nuget\\packages\\csvhelper\\33.0.1\\csvhelper.33.0.1.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\9.0.2\\microsoft.aspnetcore.authentication.jwtbearer.9.0.2.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.2\\microsoft.entityframeworkcore.9.0.2.nupkg.sha512",
     "C:\\Users\\annap\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.2\\microsoft.entityframeworkcore.abstractions.9.0.2.nupkg.sha512",
