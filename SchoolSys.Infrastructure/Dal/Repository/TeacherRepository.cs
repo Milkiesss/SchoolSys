@@ -48,4 +48,14 @@ public class TeacherRepository : BaseRepository<Teacher>, ITeacherRepository
         await _context.SaveChangesAsync();
         return true;
     }
+
+    public async Task<ICollection<Teacher>> GetTeachersByFacultyIdAsync(Guid facultyId)
+    {
+        return await _context.Teachers
+            .Include(t => t.TeacherSubjects)
+            .ThenInclude(ts => ts.Subject)
+            .Where(t => t.TeacherSubjects.Any(ts => ts.Subject.FacultyId == facultyId))
+            .ToListAsync();
+    }
+    
 }

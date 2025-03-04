@@ -1,3 +1,4 @@
+using System.Collections;
 using AutoMapper;
 using SchoolSys.Application.Dtos.StudentDto.Request;
 using SchoolSys.Application.Dtos.StudentDto.Responce;
@@ -20,25 +21,6 @@ public class StudentService : IStudentService
         _mapper = mapper;
         _studentHistoryService = studentHistoryService;
     }
-
-    public async Task<GetStudentResponse> GetByIdAsync(Guid id)
-    {
-        var student = await _studentRepository.GetByIdAsync(id);
-        return _mapper.Map<GetStudentResponse>(student);
-    }
-
-    public  async Task<GetStudentWithHistoryResponse> GetByIdWithHistoryAsync(Guid id)
-    {
-        var student = await _studentRepository.GetStudentHistoryByIdAsync(id);
-        return _mapper.Map<GetStudentWithHistoryResponse>(student);
-    }
-
-    public async  Task<IEnumerable<GetStudentResponse>> GetAllAsync()
-    {
-        var students = await _studentRepository.GetAllAsync();
-        return _mapper.Map<IEnumerable<GetStudentResponse>>(students);
-    }
-
     public async Task<Guid> AddAsync(CreateStudentRequest createStudentRequest)
     {
         var student = _mapper.Map<Student>(createStudentRequest); 
@@ -46,7 +28,6 @@ public class StudentService : IStudentService
         await _studentHistoryService.RecordCreationAsync(student.Id);
         return student.Id;
     }
-
     public async  Task<bool> UpdateAsync(UpdateStudentRequest updateStudentRequest)
     {
         var student = await _studentRepository.GetByIdAsync(updateStudentRequest.Id);
@@ -63,19 +44,38 @@ public class StudentService : IStudentService
         return result;
     }
 
-    public Task<ICollection<GetStudentResponse>> GetStudentsByYearAndFacultyAsync(int year, Guid facultyId)
+    public async Task<GetStudentResponse> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var student = await _studentRepository.GetByIdAsync(id);
+        return _mapper.Map<GetStudentResponse>(student);
     }
 
-    public Task<ICollection<GetStudentResponse>> GetStudentByIdAsync(Guid studentId)
+    public  async Task<GetStudentWithHistoryResponse> GetByIdWithHistoryAsync(Guid id)
     {
-        throw new NotImplementedException();
+        var student = await _studentRepository.GetStudentHistoryByIdAsync(id);
+        return _mapper.Map<GetStudentWithHistoryResponse>(student);
+    }
+    
+    public async Task<ICollection<GetStudentResponse>> GetStudentsByYearAndFacultyAsync(int year, Guid facultyId)
+    {
+        var student = await _studentRepository.GetStudentsByFacultyAndByYearAsync(year, facultyId);
+        return _mapper.Map<ICollection<GetStudentResponse>>(student);
     }
 
-    public Task<ICollection<GetStudentResponse>> GetStudentsByGroupIdAsync(Guid groupId)
+    public async Task<GetStudentResponse> GetStudentByGetStudentHistoryByIdAsyncIdAsync(Guid studentId)
     {
-        throw new NotImplementedException();
+        var student = await _studentRepository.GetStudentHistoryByIdAsync(studentId);
+        if(student == null)
+            throw new Exception("Student not found");
+        return _mapper.Map<GetStudentResponse>(student);
+    }
+
+    public async Task<ICollection<GetStudentResponse>> GetStudentsByGroupIdAsync(Guid groupId)
+    {
+        var student = await _studentRepository.GetStudentsByGroupIdAsync(groupId);
+        if(student == null)
+            throw new Exception("Students not found");
+        return _mapper.Map<ICollection<GetStudentResponse>>(student);
     }
 
     public async Task<bool> DeleteAsync(Guid id)

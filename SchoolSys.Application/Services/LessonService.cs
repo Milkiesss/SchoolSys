@@ -44,26 +44,15 @@ public class LessonService : ILessonService
         return await _lessonRepository.DeleteAsync(lesson);
     }
 
-    public Task<ICollection<GetLessonResponse>> GetLessonsForGroupInWeekAsync(Guid groupId, DateTime startOfWeek)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<ICollection<GetLessonResponse>> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days)
-    {
-        throw new NotImplementedException();
-    }
-
-
-    public async Task<ICollection<GetLessonResponse>> GetLessonsByGroupIdAsync(Guid groupId)
+    public async Task<ICollection<GetLessonResponse>> GetLessonsForGroupInWeekAsync(Guid groupId)
     {
         var lessons = await _lessonRepository.GetLessonsByGroupIdAsync(groupId);
         return _mapper.Map<ICollection<GetLessonResponse>>(lessons);
     }
 
-    public async Task<ICollection<GetLessonResponse>> GetLessonsByTeacherIdAsync(Guid teacherId)
+    public async Task<ICollection<GetLessonResponse>> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days)
     {
-        var lessons = await _lessonRepository.GetLessonsByTeacherIdAsync(teacherId);
+        var lessons = await _lessonRepository.GetTeacherLessonsCountInDaysAsync(teacherId, days);
         return _mapper.Map<ICollection<GetLessonResponse>>(lessons);
     }
 }

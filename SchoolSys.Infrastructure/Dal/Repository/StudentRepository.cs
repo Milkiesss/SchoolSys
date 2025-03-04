@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SchoolSys.Application.interfaces.Repositories;
 using SchoolSys.Domain.Entities;
+using SchoolSys.Domain.enums;
 using SchoolSys.Infrastructure.Dal.EntityFramework;
 
 namespace SchoolSys.Infrastructure.Dal.Repository;
@@ -20,13 +21,21 @@ public class StudentRepository : BaseRepository<Student> ,IStudentRepository
             .ToListAsync();
     }
 
-    public async Task<List<Student>> GetStudentHistoryByIdAsync(Guid studentId)
+    public async Task<Student> GetStudentHistoryByIdAsync(Guid studentId)
     {
         var student = await _context.Students.FindAsync(studentId);
         if (student == null)
             throw new ArgumentException("Студент не найден", nameof(studentId));
 
         return await _context.Students.Include(h => h.History)
-            .Where(h => h.Id == studentId).ToListAsync();
+            .FirstOrDefaultAsync(h => h.Id == studentId);
+    }
+
+    public async Task<ICollection<Student>> GetStudentsByFacultyAndByYearAsync(int year, Guid facultyId)
+    {
+        return await _context.Students
+            .Include(x => x.History)
+            .Include(x => x.Group)
+            .Where(x => x.Status == StudentStatus.Enrolled && x.Group.FacultyId == facultyId).ToListAsync();
     }
 }

@@ -4,6 +4,7 @@ namespace SchoolSys.Application.interfaces.Repositories;
 
 public interface ILessonRepository : IBaseRepository<Lesson>
 {
-    public Task<ICollection<Lesson>> GetLessonsByGroupIdAsync(Guid groupId);
-    public Task<ICollection<Lesson>> GetLessonsByTeacherIdAsync(Guid TeacherId);
+     Task<ICollection<Lesson>> GetLessonsByGroupIdAsync(Guid groupId);
+     Task<ICollection<Lesson>> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days);
+
 }

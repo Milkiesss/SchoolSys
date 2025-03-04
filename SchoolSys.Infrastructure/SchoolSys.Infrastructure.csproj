@@ -31,10 +31,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
-    </ItemGroup>
-
-    <ItemGroup>
       <ProjectReference Include="..\SchoolSys.Application\SchoolSys.Application.csproj" />
       <ProjectReference Include="..\SchoolSys.Domain\SchoolSys.Domain.csproj" />
     </ItemGroup>

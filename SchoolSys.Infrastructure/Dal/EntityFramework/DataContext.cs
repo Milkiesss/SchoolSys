@@ -14,6 +14,7 @@ public class DataContext : DbContext
     public DbSet<Student> Students { get; set; }
     public DbSet<StudentHistory> StudentHistories { get; set; }
     public DbSet<Subject> Subjects { get; set; }
+    public DbSet<Session> Sessions { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<TeacherSubject> TeacherSubjectsvies { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)

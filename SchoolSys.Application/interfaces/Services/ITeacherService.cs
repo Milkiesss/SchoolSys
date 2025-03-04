@@ -9,8 +9,8 @@ public interface ITeacherService
     Task<bool> UpdateAsync(UpdateTeacherRequest updateTeacherRequest);
     Task<bool> DeleteAsync(Guid id);
     Task<GetTeacherResponse> GetByIdAsync(Guid id);
-    Task<IEnumerable<GetTeacherResponse>> GetAllAsync();
-    Task<GetTeacherResponse> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days);
+    Task<ICollection<GetTeacherResponse>> GetAllAsync();
+    Task<ICollection<GetTeacherResponse>> GetTeachersByFacultyIdAsync(Guid facultyId);
     Task<bool> AddTeacherSubjectAsync(Guid teacherId, Guid subjectId);
     Task<bool> DeleteTeacherSubjectAsync(Guid teacherId, Guid subjectId);
 }

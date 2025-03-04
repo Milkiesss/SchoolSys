@@ -11,6 +11,7 @@ public class LessonConfig: IEntityTypeConfiguration<Lesson>
         builder.HasKey(l => l.Id);
 
         builder.Property(l => l.LessonDate)
+            .HasColumnType("timestamp(0)")
             .IsRequired();
 
         builder.Property(l => l.Room)

@@ -49,15 +49,16 @@ public class TeacherService : ITeacherService
         return _mapper.Map<GetTeacherResponse>(teacher);
     }
 
-    public async Task<IEnumerable<GetTeacherResponse>> GetAllAsync()
+    public async Task<ICollection<GetTeacherResponse>> GetAllAsync()
     {
         var teachers = await _teacherRepository.GetAllAsync();
-        return _mapper.Map<IEnumerable<GetTeacherResponse>>(teachers);
+        return _mapper.Map<ICollection<GetTeacherResponse>>(teachers);
     }
 
-    public Task<GetTeacherResponse> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days)
+    public async Task<ICollection<GetTeacherResponse>> GetTeachersByFacultyIdAsync(Guid facultyId)
     {
-        throw new NotImplementedException();
+        var teachers = await _teacherRepository.GetTeachersByFacultyIdAsync(facultyId);
+        return _mapper.Map<ICollection<GetTeacherResponse>>(teachers);
     }
     
 

@@ -16,14 +16,13 @@ public class LessonRepository : BaseRepository<Lesson>, ILessonRepository
     public async Task<ICollection<Lesson>> GetLessonsByGroupIdAsync(Guid groupId)
     {
         return await _context.Lessons
-            .Where(l => l.GroupId == groupId)
+            .Where(l => l.GroupId == groupId && l.LessonDate >= DateTime.Today && l.LessonDate <= DateTime.Today.AddDays(7))
             .ToListAsync();
     }
-
-    public async Task<ICollection<Lesson>> GetLessonsByTeacherIdAsync(Guid teacherId)
+    public async Task<ICollection<Lesson>> GetTeacherLessonsCountInDaysAsync(Guid teacherId, int days)
     {
-        return await _context.Lessons
-            .Where(l => l.TeacherId == teacherId)
-            .ToListAsync();
+        var StartDate = DateTime.Now.Date;
+        var EndDate = StartDate.AddDays(days);
+        return await _context.Lessons.Where(x=>x.LessonDate >= StartDate && x.LessonDate <=EndDate && x.TeacherId == teacherId).ToListAsync();
     }
 }
