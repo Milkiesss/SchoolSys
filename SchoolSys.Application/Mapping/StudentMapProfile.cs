@@ -1,7 +1,7 @@
 using AutoMapper;
 using SchoolSys.Application.Dtos.StudentDto;
 using SchoolSys.Application.Dtos.StudentDto.Request;
-using SchoolSys.Application.Dtos.StudentDto.Responce;
+using SchoolSys.Application.Dtos.StudentDto.Response;
 using SchoolSys.Domain.Entities;
 
 namespace SchoolSys.Application.Mapping;
@@ -15,6 +15,7 @@ public class StudentMapProfile : Profile
                 Guid.NewGuid(),
                 dto.FullName,
                 dto.Gender,
+                dto.Email,
                 dto.DateOfBirth,
                 dto.Status,
                 dto.GroupId
@@ -25,6 +26,7 @@ public class StudentMapProfile : Profile
                 dto.Id,
                 dto.FullName,
                 dto.Gender,
+                dto.Email,
                 dto.DateOfBirth,
                 dto.Status,
                 dto.GroupId

@@ -1,7 +1,7 @@
 using System.Collections;
 using AutoMapper;
 using SchoolSys.Application.Dtos.StudentDto.Request;
-using SchoolSys.Application.Dtos.StudentDto.Responce;
+using SchoolSys.Application.Dtos.StudentDto.Response;
 using SchoolSys.Application.interfaces.Repositories;
 using SchoolSys.Application.interfaces.Services;
 using SchoolSys.Domain.Entities;
@@ -12,10 +12,10 @@ namespace SchoolSys.Application.Services;
 public class StudentService : IStudentService
 {
     private readonly IStudentRepository _studentRepository;
-    private readonly IStudentHistoryService _studentHistoryService;
+    private readonly StudentHistoryService _studentHistoryService;
     private readonly IMapper _mapper;
 
-    public StudentService(IStudentRepository studentRepository, IMapper mapper, IStudentHistoryService studentHistoryService)
+    public StudentService(IStudentRepository studentRepository, IMapper mapper, StudentHistoryService studentHistoryService)
     {
         _studentRepository = studentRepository;
         _mapper = mapper;
@@ -70,9 +70,9 @@ public class StudentService : IStudentService
         return _mapper.Map<GetStudentResponse>(student);
     }
 
-    public async Task<ICollection<GetStudentResponse>> GetStudentsByGroupIdAsync(Guid groupId)
+    public async Task<ICollection<GetStudentResponse>> GetStudentsByGroupIdAsync(string groupName)
     {
-        var student = await _studentRepository.GetStudentsByGroupIdAsync(groupId);
+        var student = await _studentRepository.GetStudentsByGroupNameAsync(groupName);
         if(student == null)
             throw new Exception("Students not found");
         return _mapper.Map<ICollection<GetStudentResponse>>(student);

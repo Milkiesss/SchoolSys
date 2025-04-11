@@ -9,6 +9,5 @@ public interface ISessionService
     Task<bool> UpdateAsync(UpdateSessionRequest updateSessionRequest);
     Task<bool> DeleteAsync(Guid id);
     Task<GetSessionResponce> GetByIdAsync(Guid id);
-    Task<ICollection<GetSessionResponce>> GetSessionsByGroupIdAsync(Guid groupId);
-    Task<ICollection<GetSessionResponce>> GetSessionsByDateRangeAsync(DateTime Date);
+    Task<ICollection<GetSessionResponce>> GetSessionsByGroupIdAsync(string groupName, DateTime Year);
 }

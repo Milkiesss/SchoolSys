@@ -1,4 +1,4 @@
-namespace SchoolSys.Application.Dtos.Groupto.Request;
+namespace SchoolSys.Application.Dtos.GroupDto.Request;
 
 public class UpdateGroupRequest : BaseGroupDto
 {

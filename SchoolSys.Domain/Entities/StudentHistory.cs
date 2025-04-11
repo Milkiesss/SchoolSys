@@ -4,6 +4,9 @@ namespace SchoolSys.Domain.Entities;
 
 public class StudentHistory : BaseEntity
 {
+    public StudentHistory()
+    {
+    }
     public Guid StudentId { get; set; }
     public DateTime ChangeDate { get; set; }
     public StudentStatus? OldStatus { get; set; }

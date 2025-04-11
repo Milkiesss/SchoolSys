@@ -2,7 +2,7 @@ namespace SchoolSys.Domain.enums;
 
 public enum Role
 {
-    Administrator,
+    Student,
     Teacher,
-    Student
+    Administrator
 }

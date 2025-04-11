@@ -1,6 +1,6 @@
 using AutoMapper;
-using SchoolSys.Application.Dtos.Groupto.Request;
-using SchoolSys.Application.Dtos.Groupto.Response;
+using SchoolSys.Application.Dtos.GroupDto.Request;
+using SchoolSys.Application.Dtos.GroupDto.Response;
 using SchoolSys.Application.interfaces.Repositories;
 using SchoolSys.Application.interfaces.Services;
 using SchoolSys.Domain.Entities;

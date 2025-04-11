@@ -12,6 +12,10 @@ public class Lesson : BaseEntity
         Room = dtoRoom;
     }
 
+    public Lesson()
+    {
+    }
+
     public Guid GroupId { get; set; }
     public Guid SubjectId { get; set; }
     public Guid TeacherId { get; set; }

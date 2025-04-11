@@ -26,7 +26,7 @@ public class JwtTokenGenerator : IJwtTokenGenerator
         var claims = new[]
         {
             new Claim(JwtRegisteredClaimNames.Sub, entity.Id.ToString()),
-            new Claim(JwtRegisteredClaimNames.FamilyName, entity.FullName),
+            new Claim(JwtRegisteredClaimNames.Email, entity.Email),
             new Claim("role",entity.Role.ToString())
         };
         var securityToken = new JwtSecurityToken(

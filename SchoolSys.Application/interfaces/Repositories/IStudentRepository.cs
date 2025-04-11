@@ -6,5 +6,5 @@ public interface IStudentRepository : IBaseRepository<Student>
 {
     public Task<Student> GetStudentHistoryByIdAsync(Guid studentId);
     Task<ICollection<Student>> GetStudentsByFacultyAndByYearAsync(int year, Guid facultyId);
-    Task<ICollection<Student>> GetStudentsByGroupIdAsync(Guid groupId);
+    Task<ICollection<Student>> GetStudentsByGroupNameAsync(string groupName);
 }

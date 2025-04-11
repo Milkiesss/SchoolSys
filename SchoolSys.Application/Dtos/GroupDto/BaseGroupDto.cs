@@ -1,4 +1,4 @@
-namespace SchoolSys.Application.Dtos.Groupto;
+namespace SchoolSys.Application.Dtos.GroupDto;
 
 public class BaseGroupDto
 {

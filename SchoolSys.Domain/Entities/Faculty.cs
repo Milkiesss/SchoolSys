@@ -5,8 +5,9 @@ public class Faculty : BaseEntity
     public Faculty(Guid Id, string dtoName)
     {
         SetId(Id); 
-        dtoName = dtoName;
+        Name = dtoName;
     }
+    public Faculty(){}
 
     public string Name { get; set; }
     public ICollection<Group> Groups { get; set; }

@@ -17,10 +17,6 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
         builder.Property(u => u.PasswordHash)
             .IsRequired();
         
-        builder.Property(u => u.FullName)
-            .IsRequired()
-            .HasMaxLength(255);
-        
         builder.HasOne(u => u.Teacher)
             .WithOne()
             .HasForeignKey<User>(u => u.TeacherId)

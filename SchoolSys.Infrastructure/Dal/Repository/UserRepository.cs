@@ -15,23 +15,27 @@ public class UserRepository : BaseRepository<User>, IUserRepository
 
     public async Task<User?> GetByEmailAsync(string email)
     {
-        return await _context.Users.FirstOrDefaultAsync(x => x.Email == email);
+        return await _context.Users.AsNoTracking().FirstOrDefaultAsync(x => x.Email == email);
     }
 
-    public async Task<Guid> GetStudentByFullNameAsync(string fullName)
+    public async Task<Student> GetStudentByEmailAsync(string email)
     {
-        var result = await _context.Students.FirstOrDefaultAsync(x=>x.FullName == fullName);
+        var result = await _context.Students.AsNoTracking()
+            .Include(s=>s.Group)
+            .FirstOrDefaultAsync(x=>x.Email == email);
         if (result == null)
             throw new Exception("Student not found");
-        return result.Id;
+        return result;
     }
 
-    public async Task<Guid> GetTeacherByFullNameAsync(string fullName)
+    public async Task<Teacher> GetTeacherByEmailAsync(string email)
     {
-        var result = await _context.Teachers.FirstOrDefaultAsync(x=>x.FullName == fullName);
+        var result = await _context.Teachers.AsNoTracking()
+            .Include(t=>t.TeacherSubjects)
+            .FirstOrDefaultAsync(x=>x.Email == email);
         if(result == null)
             throw new Exception("Teacher not found");
-        return result.Id;
+        return result;
     }
     
 }

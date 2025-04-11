@@ -1,8 +1,11 @@
 // SchoolSys.Web/Controllers/LessonController.cs
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SchoolSys.Application.Dtos.LessonDto.Request;
 using SchoolSys.Application.interfaces.Services;
+
+namespace SchoolSys.Infrastructure.Controllers;
 
 [ApiController]
 [Route("api/lessons")]

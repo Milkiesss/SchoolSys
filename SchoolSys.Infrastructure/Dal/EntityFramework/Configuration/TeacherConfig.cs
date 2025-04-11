@@ -15,6 +15,7 @@ public class TeacherConfig: IEntityTypeConfiguration<Teacher>
             .HasMaxLength(100);
 
         builder.Property(t => t.Email)
+            .IsRequired()
             .HasMaxLength(150);
 
         builder.Property(t => t.PhoneNumber)

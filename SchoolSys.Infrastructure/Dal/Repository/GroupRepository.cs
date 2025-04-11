@@ -19,4 +19,9 @@ public class GroupRepository : BaseRepository<Group>, IGroupRepository
             .Where(g => g.FacultyId == facultyId)
             .ToListAsync();
     }
+
+    public async Task<Group> GetGroupByNumberAsync(string groupNumber)
+    {
+       return await _context.Groups.FirstOrDefaultAsync(x=>x.Name==groupNumber);
+    }
 }

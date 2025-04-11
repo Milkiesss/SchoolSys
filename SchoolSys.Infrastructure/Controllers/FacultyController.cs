@@ -3,17 +3,17 @@ using Microsoft.AspNetCore.Mvc;
 using SchoolSys.Application.Dtos.FacultyDto.Request;
 using SchoolSys.Application.interfaces.Services;
 
+namespace SchoolSys.Infrastructure.Controllers;
+
 [ApiController]
 [Route("api/faculties")]
 public class FacultyController : ControllerBase
 {
     private readonly IFacultyService _facultyService;
-    private readonly IAuthorizationService _authService;
 
-    public FacultyController(IFacultyService facultyService, IAuthorizationService authService)
+    public FacultyController(IFacultyService facultyService)
     {
         _facultyService = facultyService;
-        _authService = authService;
     }
 
     [HttpPost]

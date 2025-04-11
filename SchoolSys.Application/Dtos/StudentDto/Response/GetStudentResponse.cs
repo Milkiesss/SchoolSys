@@ -1,4 +1,4 @@
-namespace SchoolSys.Application.Dtos.StudentDto.Responce;
+namespace SchoolSys.Application.Dtos.StudentDto.Response;
 
 public class GetStudentResponse : BaseStudentDto
 {

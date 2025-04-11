@@ -9,6 +9,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AutoMapper" Version="14.0.0" />
+        <PackageReference Include="FastReport.OpenSource" Version="2025.1.0" />
+        <PackageReference Include="FastReport.OpenSource.Export.PdfSimple" Version="2025.1.0" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.2" NoWarn="NU1605"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.2"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.2" />
@@ -21,7 +24,8 @@
           <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
-        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="7.3.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="7.3.1" />
+        <PackageReference Include="System.Drawing.Common" Version="9.0.3" />
     </ItemGroup>
 
     <ItemGroup>

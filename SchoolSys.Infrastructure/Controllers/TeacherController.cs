@@ -1,8 +1,11 @@
 // SchoolSys.Web/Controllers/TeacherController.cs
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SchoolSys.Application.Dtos.TeacherDto.Request;
 using SchoolSys.Application.interfaces.Services;
+
+namespace SchoolSys.Infrastructure.Controllers;
 
 [ApiController]
 [Route("api/teachers")]
@@ -23,9 +26,9 @@ public class TeacherController : ControllerBase
         return Ok(teacherId);
     }
 
-    [HttpPut("Update")]
+    [HttpPut("{id:guid}")]
     [Authorize(Roles = "Administrator")]
-    public async Task<IActionResult> Update(Guid id, [FromBody] UpdateTeacherRequest request)
+    public async Task<IActionResult> Update(Guid id,[FromBody] UpdateTeacherRequest request)
     {
         var result = await _teacherService.UpdateAsync(request);
         return Ok(result);

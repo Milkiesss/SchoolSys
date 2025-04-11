@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SchoolSys.Application.Dtos.Groupto.Request;
+using SchoolSys.Application.Dtos.GroupDto.Request;
 using SchoolSys.Application.interfaces.Services;
+
+namespace SchoolSys.Infrastructure.Controllers;
 
 [ApiController]
 [Route("api/groups")]
@@ -22,9 +24,9 @@ public class GroupController : ControllerBase
         return Ok(groupId);
     }
 
-    [HttpPut("Update")]
+    [HttpPut("{id:guid}")]
     [Authorize(Roles = "Administrator")]
-    public async Task<IActionResult> Update([FromBody] UpdateGroupRequest request)
+    public async Task<IActionResult> Update(Guid id, UpdateGroupRequest request)
     {
         var result = await _groupService.UpdateAsync(request);
         return result ? Ok() : NotFound("Group not found");

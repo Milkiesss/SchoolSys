@@ -1,5 +1,5 @@
-using SchoolSys.Application.Dtos.Groupto.Request;
-using SchoolSys.Application.Dtos.Groupto.Response;
+using SchoolSys.Application.Dtos.GroupDto.Request;
+using SchoolSys.Application.Dtos.GroupDto.Response;
 
 namespace SchoolSys.Application.interfaces.Services;
 

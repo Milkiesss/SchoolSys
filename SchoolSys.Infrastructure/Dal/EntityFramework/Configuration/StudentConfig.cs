@@ -17,6 +17,10 @@ public class StudentConfig : IEntityTypeConfiguration<Student>
         builder.Property(s => s.DateOfBirth)
             .HasColumnType("timestamp(0)")
             .IsRequired();
+        
+        builder.Property(t => t.Email)
+            .IsRequired()
+            .HasMaxLength(150);
 
         builder.Property(s => s.Gender)
             .HasMaxLength(10);

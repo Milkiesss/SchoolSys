@@ -14,10 +14,10 @@ public class StudentRepository : BaseRepository<Student> ,IStudentRepository
         _context = context;
     }
 
-    public async Task<ICollection<Student>> GetStudentsByGroupIdAsync(Guid groupId)
+    public async Task<ICollection<Student>> GetStudentsByGroupNameAsync(string groupName)
     {
         return await _context.Students
-            .Where(s => s.GroupId == groupId)
+            .Where(s => s.Group.Name == groupName)
             .ToListAsync();
     }
 

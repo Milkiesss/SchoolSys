@@ -1,4 +1,4 @@
-namespace SchoolSys.Application.Dtos.Groupto.Response;
+namespace SchoolSys.Application.Dtos.GroupDto.Response;
 
 public class GetGroupResponse : BaseGroupDto
 {

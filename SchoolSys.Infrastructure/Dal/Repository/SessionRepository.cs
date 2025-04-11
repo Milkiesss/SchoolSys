@@ -1,3 +1,4 @@
+using System.Collections;
 using Microsoft.EntityFrameworkCore;
 using SchoolSys.Application.interfaces.Repositories;
 using SchoolSys.Domain.Entities;
@@ -13,21 +14,37 @@ public class SessionRepository :  BaseRepository<Session>,ISessionRepository
         _context = context;
     }
 
-    public async Task<ICollection<Session>> GetSessionsByGroupIdAsync(Guid groupId)
+    public async Task<ICollection<Session>> GetSessionsByGroupIdAsync(string groupName, DateTime Year)
     {
-        return await _context.Sessions
-            .Include(x=>x.Subject)
-            .Include(x=>x.Group)
-            .Where(x=>x.GroupId == groupId)
-            .ToListAsync();
-    }
-    
-    public async Task<ICollection<Session>> GetSessionsByDateRangeAsync(DateTime Date)
-    {
-        return await _context.Sessions
+        var session = await _context.Sessions.AsNoTracking()
+            .Where(s => s.Group.Name == groupName && s.SessionDate.Year == Year.Year)
             .Include(s => s.Group)
-            .Include(s => s.Subject)
-            .Where(s => s.SessionDate == Date)
+            .Include(s => s.Subjects)
+                .ThenInclude(ss => ss.Subject)
+            .Include(s => s.Subjects)
+                .ThenInclude(ss => ss.Students)
+                    .ThenInclude(ss => ss.Student)
+            .AsSplitQuery()
             .ToListAsync();
+        return session;
+    }
+    public async Task<Session> GetByIdWithSubjectAsync(Guid id)
+    {
+        return await _context.Sessions.AsTracking()
+            .Include(s=>s.Subjects)
+            .FirstOrDefaultAsync(x=>x.Id==id);
+    }
+    public async Task<bool> CreateSessionSubjectAsync(ICollection<SessionSubject> subjects)
+    {
+        await _context.SessionSubjects.AddRangeAsync(subjects);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> CreateSessionStudentAsync(ICollection<SessionStudent> sessionStudents)
+    {
+        await _context.SessionStudents.AddRangeAsync(sessionStudents);
+        await _context.SaveChangesAsync();
+        return true;
     }
 }

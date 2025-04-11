@@ -5,7 +5,7 @@ using SchoolSys.Domain.enums;
 
 namespace SchoolSys.Application.Services;
 
-public class StudentHistoryService : IStudentHistoryService
+public class StudentHistoryService 
 {
     private readonly IStudentHistoryRepository _studentHistoryRepository;
 
